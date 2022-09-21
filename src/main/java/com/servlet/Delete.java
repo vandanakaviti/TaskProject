@@ -17,11 +17,22 @@ public class Delete extends HttpServlet {
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RegisterDAO dao = new RegisterDAO();
-		String empId = request.getParameter("empId");
+		int empId = Integer.valueOf(request.getParameter("empId"));
 		
-		PrintWriter writer = response.getWriter();
-		if (dao.deleteRegistration(empId)) writer.println("<font color=green> <center> <h2> Employee with Employee ID - " + empId + " has been deleted </h2> </center> </font>");
-		else writer.println("<font color=red> <center> <h2> Could not delete the employee </h2> </center> </font>");
+		PrintWriter out = response.getWriter();
+		
+		out.println("<html>");
+		out.println("<head>");
+		out.println("<link type='text/css' rel='stylesheet' href='css/style.css'>");
+		out.println("</head>");
+		out.println("<body>");
+		
+		if (dao.deleteRegistration(empId)) out.println("<font color=green> <center> <h2> Employee with Employee ID - " + empId + " has been deleted </h2> </center> </font>");
+		else out.println("<font color=red> <center> <h2> Could not delete the employee </h2> </center> </font>");
+		
+		out.println("<font color=dodgerblue> <center> <h2> <a href = 'mainPage.jsp'> Click here for Main page </a>  </h2> </center> </font> ");
+		out.println("</body>");
+		out.println("</html>");
 	}
 
 }

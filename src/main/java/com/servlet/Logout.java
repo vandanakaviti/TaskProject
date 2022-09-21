@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.dao.RegisterDAO;
 
@@ -17,12 +18,9 @@ public class Logout extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String uid = request.getParameter("");
+		HttpSession session = request.getSession(false);   
+		int uid = (int) session.getAttribute("uid");
 		RegisterDAO dao = new RegisterDAO();
-		
-//		RequestDispatcher req = request.getRequestDispatcher("logout.jsp");
-//		req.forward(request, response);
 		
 		if (dao.userLogout(uid)) {
 			RequestDispatcher req = request.getRequestDispatcher("logout.jsp");
@@ -38,7 +36,8 @@ public class Logout extends HttpServlet {
 			writer.println("<center>");
 			
 			writer.println("<h2> Error while logging out. </h2>");
-			writer.println("<h2> Please retry &#8635. </h2>");
+			writer.println("<h2> Please retry ");
+			writer.println("<font color=red> <a href = 'mainPage.jsp'> &#8635 </a> </h2> </font>");
 
 			writer.println("</center>");
 			writer.println("</font>");

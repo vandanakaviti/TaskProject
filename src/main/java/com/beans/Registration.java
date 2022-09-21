@@ -1,7 +1,7 @@
 package com.beans;
 
 public class Registration {
-	private String empId;
+	private int empId;
 	private String empName;
 	private String empEmail;
 	
@@ -9,17 +9,17 @@ public class Registration {
 		super();
 	}
 
-	public Registration(String empId, String empName, String empEmail) {
-		this.empId = empId;
+	public Registration(int empId2, String empName, String empEmail) {
+		this.empId = empId2;
 		this.empName = empName;
 		this.empEmail = empEmail;
 	}
 
-	public String getEmpId() {
+	public int getEmpId() {
 		return empId;
 	}
 
-	public void setEmpId(String empId) {
+	public void setEmpId(int empId) {
 		this.empId = empId;
 	}
 

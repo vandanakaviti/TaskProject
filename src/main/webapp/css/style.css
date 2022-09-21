@@ -6,8 +6,8 @@ body {
 }
 
 .wrapper {
-  display: flex;
-  justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 .login-register-form {
@@ -65,8 +65,8 @@ input[type=text], input[type=email] {
 	opacity: 0.6;
 }
 
-.center-button{
-	display:block;
+.center-button {
+	display: block;
 	width: 100%;
 	border: none;
 	background: lightgreen;
@@ -83,7 +83,7 @@ input[type=text], input[type=email] {
 }
 
 .logout-button {
-	display:block;
+	display: block;
 	width: 100%;
 	border: none;
 	background: #ff6666;
@@ -99,6 +99,23 @@ input[type=text], input[type=email] {
 	opacity: 0.6;
 }
 
+.update-button {
+	display: block;
+	border: none;
+	outline: none;
+	background: lightgreen;
+	font-size: 1rem;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.update-button:hover {
+	opacity: 0.6;
+}
+
 a {
 	color: dodgerblue;
 	margin: 10px;
@@ -106,4 +123,18 @@ a {
 
 a:hover {
 	opacity: 60%;
+}
+
+.dashboard {
+	width: 100%;
+	letter-spacing: 1px;
+	margin-bottom: 20px;
+	border-bottom: 1px groove black;
+	color: activeborder;
+}
+
+.clock-class {
+	position: absolute;
+	width: 300px;
+	right : 0px;
 }

@@ -17,15 +17,29 @@ public class Update extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RegisterDAO dao = new RegisterDAO();
-		String empId = request.getParameter("empId");
-		String empName = request.getParameter("empName");
+		int empId = Integer.valueOf(request.getParameter("empId"));
+		String empName = request.getParameter("updatedName");
 
-		PrintWriter writer = response.getWriter();
-		if (dao.updateRegistration(empId, empName))
-			writer.println("<h2 style='color:green'> <center> Employee name with Employee ID - " + empId
-					+ " has been updated </center> </h2>");
-		else
-			writer.println("<h2> <center> Could not update the employee name </center> </h2>");
+		PrintWriter out = response.getWriter();
+		
+		out.println("<html>");
+		out.println("<head>");
+		out.println("<link type='text/css' rel='stylesheet' href='css/style.css'>");
+		out.println("</head>");
+		out.println("<body>");
+		
+		if (dao.updateRegistration(empId, empName)) {
+			out.println("<font color=green> <center> <h2> Employee name with Employee ID - " + empId
+					+ " has been updated </h2> </center> </font>");
+		}
+		
+		else {
+			out.println("<font color=red> <center> <h2> Could not update the employee name </h2> </center> </font> ");
+		}
+		
+		out.println("<font color=dodgerblue> <center> <h2> <a href = 'mainPage.jsp'> Click here for Main page </a>  </h2> </center> </font> ");
+		out.println("</body>");
+		out.println("</html>");
 	}
 
 }
