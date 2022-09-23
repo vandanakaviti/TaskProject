@@ -42,10 +42,10 @@ public class ViewAllUsers extends HttpServlet {
 			out.println("<td> <a href = 'Delete?empId=" + user.getEmpId() + "'> &#10060" + "</td>");
 //			Update?empId=704775&empName=vandana	
 			
-			String updatedName = request.getParameter("updName");
+//			String updatedName = request.getParameter("updName");
 //			out.println("<td> <a href = 'Update?empId=" + user.getEmpId() + "&empName=" + updatedName + "'> &#9998 </a> </td>");
 			
-			out.println("<td> <a href = 'updateUser.jsp'> &#9998 </a> </td>");
+//			out.println("<td> <a href = 'updateUser.jsp'> &#9998 </a> </td>");
 			out.println("</tr>");
 		}
 		out.println("</table>");
